@@ -146,7 +146,11 @@
               :on-success="handleAvatarSuccess"
               :before-upload="beforeAvatarUpload"
             >
-              <el-avatar :size="120" :src="image_url" style="cursor: pointer" />
+              <el-avatar
+                :size="120"
+                :src="accountDetailData.image_url"
+                style="cursor: pointer"
+              />
             </el-upload>
           </div>
         </div>
@@ -170,10 +174,12 @@ import { UserFilled } from "@element-plus/icons-vue";
 import router from "@/router";
 import { ElMessage } from "element-plus";
 import { useUserInfo } from "@/store/userInfo";
-import { beforeAvatarUpload,accountDetailData } from "@/views/set/hooks/useAccountDetails";
+import {
+  beforeAvatarUpload,
+  accountDetailData,
+} from "@/views/set/hooks/useAccountDetails";
 import type { UploadProps } from "element-plus";
 import { bandAccount } from "@/api/userInfo";
-
 
 const uploadUrl = ref(import.meta.env.VITE_API_BASE_URL + "/user/uploadAvatar"); // 上传的图片服务器地址
 
@@ -229,13 +235,14 @@ const handleAvatarSuccess: UploadProps["onSuccess"] = (response) => {
       ElMessage.error("头像绑定账号失败");
       return;
     }
-    useUserInfo().$patch((item) => (item.image_url = response.image_url));
+    const imageUrl = import.meta.env.VITE_API_BASE_URL + response.image_url;
+    useUserInfo().$patch((item) => (item.image_url = imageUrl));
     ElMessage({
       message: "更新头像成功",
       type: "success",
     });
+    accountDetailData.image_url = imageUrl;
   })();
-  image_url.value = response.image_url;
 };
 
 // 设置账号逻辑

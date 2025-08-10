@@ -103,6 +103,7 @@ const handleSwiperSuccess: UploadProps["onSuccess"] = (
         width: 237px;
         height: 178px;
         display: block;
+        border-radius: 10px;
       }
 
       .el-icon.avatar-uploader-icon {
