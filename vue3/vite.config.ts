@@ -3,6 +3,7 @@ import { defineConfig } from "vite"; // 新增 loadEnv
 import vue from "@vitejs/plugin-vue";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import { codeInspectorPlugin } from 'code-inspector-plugin';
+import tailwindcss from "@tailwindcss/vite";
 
 
 import path from "path";
@@ -15,10 +16,11 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       vue(),
+      tailwindcss(),
       codeInspectorPlugin({
-        bundler: 'vite',
+        bundler: "vite",
         showSwitch: true,
-        editor:'code'
+        editor: "code",
       }),
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), "src/assets/svg")],

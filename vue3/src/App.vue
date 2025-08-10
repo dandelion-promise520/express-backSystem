@@ -4,6 +4,6 @@
   </div>
 </template>
 
-<script setup lang="ts" name="App"></script>
-
-<style scoped lang="css"></style>
+<script setup lang="ts" name="App">
+import './App.css'
+</script>

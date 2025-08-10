@@ -10,12 +10,7 @@
       <el-main class="main-wrapped">
         <div class="main-content">
           <el-card class="box-card">
-            <el-tabs
-              v-model="activeName"
-              class="demo-tabs"
-              :stretch="true"
-              @keyup.enter="Login"
-            >
+            <el-tabs v-model="activeName" class="demo-tabs" :stretch="true">
               <el-tab-pane label="登录" name="first">
                 <el-form :model="loginForm" label-width="auto">
                   <el-form-item label="账号">
@@ -34,15 +29,15 @@
                       clearable
                     />
                   </el-form-item>
+                  <el-form-item class="w-full flex items-center">
+                    <el-button type="primary" @submit="Login">登录</el-button>
+                  </el-form-item>
                 </el-form>
                 <div class="footer-wrapped">
                   <div class="forget-password">
-                    <span class="forget-password-btn" @click="openforgetDialog"
+                    <span class="forget-password-btn" @click="openForgetDialog"
                       >忘记密码</span
                     >
-                  </div>
-                  <div class="login-btn" @click="Login">
-                    <el-button type="primary">登录</el-button>
                   </div>
                   <div class="go-register">
                     还没有账号?<span
@@ -54,7 +49,11 @@
                 </div>
               </el-tab-pane>
               <el-tab-pane label="注册" name="second">
-                <el-form :model="registerForm" label-width="auto">
+                <el-form
+                  :model="registerForm"
+                  label-width="auto"
+                  label-position="right"
+                >
                   <el-form-item label="账号">
                     <el-input
                       v-model="registerForm.account"
@@ -80,10 +79,10 @@
                       clearable
                     />
                   </el-form-item>
+                  <el-form-item class="login-btn" @click="Register">
+                    <el-button type="primary">注册</el-button>
+                  </el-form-item>
                 </el-form>
-                <div class="login-btn" @click="Register">
-                  <el-button type="primary">注册</el-button>
-                </div>
               </el-tab-pane>
             </el-tabs>
           </el-card>
@@ -131,7 +130,7 @@ const registerForm: InterLogin = reactive({
 // 定义ref的标签
 const forgetPassword = ref();
 // 打开弹框
-const openforgetDialog = () => {
+const openForgetDialog = () => {
   forgetPassword.value.openDialog();
 };
 
@@ -215,9 +214,9 @@ const Login = async () => {
 </script>
 
 <style lang="css" scoped>
- /* 头部外壳 */
+/* 头部外壳 */
 .header-wrapped {
-   /* 头部内容 */
+  /* 头部内容 */
   .header-content {
     width: 1200px;
     display: flex;
@@ -231,20 +230,20 @@ const Login = async () => {
   }
 }
 
- /* 主体外壳 */
+/* 主体外壳 */
 .main-wrapped {
   background-image: url(@/assets/img/loginBackImg.jpg);
   height: 750px;
 
   --el-main-padding: 0;
 
-   /* 主体内容 */
+  /* 主体内容 */
   .main-content {
     width: 1200px;
     height: 750px;
     margin: 0 auto;
 
-     /* 卡片样式 */
+    /* 卡片样式 */
     .box-card {
       width: 350px;
       height: 375px;
@@ -261,7 +260,7 @@ const Login = async () => {
         display: flex;
         flex-direction: column;
 
-         /* 忘记密码 */
+        /* 忘记密码 */
         .forget-password {
           display: flex;
           justify-content: flex-end;
@@ -274,7 +273,7 @@ const Login = async () => {
           }
         }
 
-         /* 去注册 */
+        /* 去注册 */
         .go-register {
           display: flex;
           justify-content: center;
@@ -287,22 +286,20 @@ const Login = async () => {
         }
       }
 
-       /* 登录 */
+      /* 登录 */
       .login-btn {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
+        justify-content: center;
         margin: 4px 0;
       }
     }
   }
 }
 
- /* 页脚外壳 */
+/* 页脚外壳 */
 .footer-wrapped {
   margin: 8px 0;
 
-   /* 页脚内容 */
+  /* 页脚内容 */
   .footer-content {
     width: 1200px;
     margin: 0 auto;
@@ -316,25 +313,25 @@ const Login = async () => {
   }
 }
 
- /* 样式穿透 */
- /* tags标签 */
+/* 样式穿透 */
+/* tags标签 */
 :deep(.el-tabs__item) {
   color: #333;
   font-size: 18px;
 }
 
- /* 输入框高度 */
+/* 输入框高度 */
 :deep(.el-input__inner) {
   height: 40px;
 }
 
- /* 输入框标签字体高度 */
+/* 输入框标签字体高度 */
 :deep(.el-form-item__label) {
   line-height: 40px;
   height: 40px;
 }
 
- /* 登录按钮 */
+/* 登录按钮 */
 :deep(.el-button) {
   width: 240px;
   height: 45px;
