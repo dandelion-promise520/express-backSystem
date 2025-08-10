@@ -33,7 +33,7 @@ vue3/.vite/
 vue3/.cache/
 
 # 上传文件
-public/upload/
+# public/upload/
 
 # 数据库备份
 ./node_modules
