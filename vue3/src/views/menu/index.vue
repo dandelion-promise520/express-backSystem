@@ -102,7 +102,7 @@
             <div>
               <el-avatar
                 :icon="UserFilled"
-                :src="image_url"
+                :src="accountDetailData.image_url"
                 :size="30"
                 style="cursor: pointer"
                 @click="centerDialogVisible = true"
@@ -170,10 +170,10 @@ import { UserFilled } from "@element-plus/icons-vue";
 import router from "@/router";
 import { ElMessage } from "element-plus";
 import { useUserInfo } from "@/store/userInfo";
-
-import { beforeAvatarUpload } from "@/views/set/hooks/useAccountDetails";
+import { beforeAvatarUpload,accountDetailData } from "@/views/set/hooks/useAccountDetails";
 import type { UploadProps } from "element-plus";
 import { bandAccount } from "@/api/userInfo";
+
 
 const uploadUrl = ref(import.meta.env.VITE_API_BASE_URL + "/user/uploadAvatar"); // 上传的图片服务器地址
 

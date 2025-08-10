@@ -5,7 +5,7 @@
       <div class="header-content">
         <div class="header-left">
           <div class="header-content-left">
-            <el-avatar :size="100" :src="image_url" />
+            <el-avatar :size="100" :src="accountDetailData.image_url" />
             <span class="text">所属部门：总裁办</span>
             <span class="text">所属公司：云边有个舒芙蕾</span>
           </div>
@@ -93,7 +93,7 @@ import {
 } from "./hooks/useEchats";
 import SvgIcon from "@/components/SvgIcon.vue";
 // 引入头像
-const { image_url } = useUserInfo();
+import { accountDetailData } from "../set/hooks/useAccountDetails";
 
 // 引入面包屑
 const item = ref({

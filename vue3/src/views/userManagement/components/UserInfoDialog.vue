@@ -10,8 +10,8 @@
       <div class="user-info-content">
         <div class="avatar-placeholder">
           <img
-            v-if="userInfo.image_url"
-            :src="userInfo.image_url"
+            v-if="accountDetailData.image_url"
+            :src="accountDetailData.image_url"
             height="100%"
           />
         </div>
@@ -37,6 +37,7 @@
 
 <script lang="ts" setup>
 import { defineProps, defineEmits, computed } from "vue";
+import { accountDetailData } from "@/views/set/hooks/useAccountDetails";
 
 const props = defineProps<{
   userInfo: {

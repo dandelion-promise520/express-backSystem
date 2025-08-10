@@ -215,9 +215,9 @@ const Login = async () => {
 </script>
 
 <style lang="css" scoped>
-// 头部外壳
+ /* 头部外壳 */
 .header-wrapped {
-  // 头部内容
+   /* 头部内容 */
   .header-content {
     width: 1200px;
     display: flex;
@@ -231,20 +231,20 @@ const Login = async () => {
   }
 }
 
-// 主体外壳
+ /* 主体外壳 */
 .main-wrapped {
   background-image: url(@/assets/img/loginBackImg.jpg);
   height: 750px;
 
   --el-main-padding: 0;
 
-  // 主体内容
+   /* 主体内容 */
   .main-content {
     width: 1200px;
     height: 750px;
     margin: 0 auto;
 
-    // 卡片样式
+     /* 卡片样式 */
     .box-card {
       width: 350px;
       height: 375px;
@@ -256,12 +256,12 @@ const Login = async () => {
         margin-top: 30px;
       }
 
-      //卡片底部外壳
+      /* 卡片底部外壳 */
       .footer-wrapped {
         display: flex;
         flex-direction: column;
 
-        // 忘记密码
+         /* 忘记密码 */
         .forget-password {
           display: flex;
           justify-content: flex-end;
@@ -274,7 +274,7 @@ const Login = async () => {
           }
         }
 
-        // 去注册
+         /* 去注册 */
         .go-register {
           display: flex;
           justify-content: center;
@@ -287,7 +287,7 @@ const Login = async () => {
         }
       }
 
-      // 登录
+       /* 登录 */
       .login-btn {
         width: 100%;
         display: flex;
@@ -298,11 +298,11 @@ const Login = async () => {
   }
 }
 
-// 页脚外壳
+ /* 页脚外壳 */
 .footer-wrapped {
   margin: 8px 0;
 
-  // 页脚内容
+   /* 页脚内容 */
   .footer-content {
     width: 1200px;
     margin: 0 auto;
@@ -316,25 +316,25 @@ const Login = async () => {
   }
 }
 
-// 样式穿透
-// tags标签
+ /* 样式穿透 */
+ /* tags标签 */
 :deep(.el-tabs__item) {
   color: #333;
   font-size: 18px;
 }
 
-// 输入框高度
+ /* 输入框高度 */
 :deep(.el-input__inner) {
   height: 40px;
 }
 
-// 输入框标签字体高度
+ /* 输入框标签字体高度 */
 :deep(.el-form-item__label) {
   line-height: 40px;
   height: 40px;
 }
 
-// 登录按钮
+ /* 登录按钮 */
 :deep(.el-button) {
   width: 240px;
   height: 45px;
