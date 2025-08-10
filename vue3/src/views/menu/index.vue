@@ -175,9 +175,7 @@ import { beforeAvatarUpload } from "@/views/set/hooks/useAccountDetails";
 import type { UploadProps } from "element-plus";
 import { bandAccount } from "@/api/userInfo";
 
-const uploadUrl = ref(import.meta.env.VITE_API_BASE_URL + "/user/uploadAvatar") // 上传的图片服务器地址
-
-
+const uploadUrl = ref(import.meta.env.VITE_API_BASE_URL + "/user/uploadAvatar"); // 上传的图片服务器地址
 
 // 判断是否有token，如没有则强制跳回登录页面
 watch(
@@ -246,15 +244,15 @@ const goSet = () => {
 };
 </script>
 
-<style lang="scss" scoped>
-// 侧边栏外壳
+<style lang="css" scoped>
+/* 侧边栏外壳 */
 .el-menu-vertical-demo {
   height: 100vh;
   overflow-x: hidden;
-  // height: 100%;
+  /* height: 100%; */
   background-color: #2a303a;
 
-  // 侧边栏标题
+  /* 侧边栏标题 */
   .title {
     display: flex;
     justify-content: center;
@@ -265,14 +263,14 @@ const goSet = () => {
     width: 200px;
   }
 
-  // 侧边栏内容
+  /* 侧边栏内容 */
   .el-menu-item {
     color: #fff;
     background-color: #2a303a;
   }
 }
 
-// 头部外壳
+/* 头部外壳 */
 .header-wrapped {
   height: 60px;
   background-color: #2a303a;
@@ -280,7 +278,7 @@ const goSet = () => {
   align-items: center;
   justify-content: space-between;
 
-  // 头部左侧内容
+  /* 头部左侧内容 */
   .header-left-content {
     span {
       color: #fff;
@@ -288,7 +286,7 @@ const goSet = () => {
     }
   }
 
-  // 头部右侧内容
+  /* 头部右侧内容 */
   .header-right-content {
     display: flex;
     align-items: center;
@@ -301,17 +299,17 @@ const goSet = () => {
   }
 }
 
-// 主要内容区
+/* 主要内容区 */
 .el-main {
   --el-main-padding: 0;
 }
 
-// 无子菜单改hover背景颜色
+/* 无子菜单改hover背景颜色 */
 :deep(.el-menu-item:hover) {
   background-color: rgb(219, 151, 26);
 }
 
-// 有子菜单改字体颜色与背景颜色
+/* 有子菜单改字体颜色与背景颜色 */
 :deep(.el-sub-menu__title) {
   color: #fff;
 }
@@ -324,12 +322,12 @@ const goSet = () => {
   background-color: #2a303a;
 }
 
-// 去除边框
+/* 去除边框 */
 :deep(.el-menu) {
   border: 0;
 }
 
-// 更改密码对话框样式
+/* 更改密码对话框样式 */
 :deep(.el-dialog__body) {
   display: flex;
   justify-content: center;

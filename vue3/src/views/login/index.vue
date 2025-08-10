@@ -214,7 +214,7 @@ const Login = async () => {
 // }, 500);
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 // 头部外壳
 .header-wrapped {
   // 头部内容

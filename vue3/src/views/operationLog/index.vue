@@ -1,9 +1,7 @@
 <template>
-    <h2>我是操作日志</h2>
+  <h2>我是操作日志</h2>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts"></script>
 
-</script>
-
-<style lang="scss" scoped></style>
+<style lang="css" scoped></style>

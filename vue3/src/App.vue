@@ -1,11 +1,9 @@
 <template>
-    <div id="app">
-        <RouterView></RouterView>
-    </div>
+  <div id="app">
+    <RouterView></RouterView>
+  </div>
 </template>
 
-<script setup lang='ts' name="App">
+<script setup lang="ts" name="App"></script>
 
-</script>
-
-<style scoped lang="sass"></style>
+<style scoped lang="css"></style>

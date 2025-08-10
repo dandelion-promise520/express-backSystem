@@ -10,7 +10,11 @@
         :on-success="handleAvatarSuccess"
         :before-upload="beforeAvatarUpload"
       >
-        <img v-if="accountDetailData.image_url" :src="accountDetailData.image_url" class="avatar" />
+        <img
+          v-if="accountDetailData.image_url"
+          :src="accountDetailData.image_url"
+          class="avatar"
+        />
         <el-icon v-else class="avatar-uploader-icon">
           <Plus />
         </el-icon>
@@ -130,14 +134,14 @@ import {
 } from "@/views/set/hooks/useAccountDetails";
 import change_password from "@/views/set/components/change_password.vue";
 
-const uploadUrl = ref(import.meta.env.VITE_API_BASE_URL + "/user/uploadAvatar") // 上传的图片服务器地址
+const uploadUrl = ref(import.meta.env.VITE_API_BASE_URL + "/user/uploadAvatar"); // 上传的图片服务器地址
 
-onMounted(()=>{
-  if (localStorage.getItem("id")){
+onMounted(() => {
+  if (localStorage.getItem("id")) {
     const id = +localStorage.getItem("id")!;
     accountDetailData.GetUserInfo(id);
   }
-})
+});
 
 // 插槽
 const changePassword = ref();
@@ -147,15 +151,13 @@ const openChangeDialog = () => {
 };
 </script>
 
-<style scoped lang="scss">
-// 账号详情外壳
+<style scoped lang="css">
 .account-details-wrapped {
   padding: 15px 50px;
   display: flex;
   align-items: center;
   font-size: 14px;
 
-  // 账号详情内容
   .account-details-content {
     padding: 0 35px;
 

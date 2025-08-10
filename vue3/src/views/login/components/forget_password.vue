@@ -31,7 +31,7 @@
         <el-button @click="status.forgetPasswordDialog = false">取消</el-button>
         <el-button type="primary" @click="EmailInquiry"> 下一步 </el-button>
       </div>
-    </template> 
+    </template>
   </el-dialog>
   <!-- 确认修改密码弹框页面 -->
   <el-dialog
@@ -187,7 +187,7 @@ const ForgetPasswordInLogin = async () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .dialog-footer {
   display: flex;
 }

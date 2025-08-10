@@ -16,11 +16,7 @@
           :before-upload="beforeSwiperUpload"
           :data="item"
         >
-          <img
-            v-if="item.set_value"
-            :src="item.set_value"
-            class="avatar"
-          />
+          <img v-if="item.set_value" :src="item.set_value" class="avatar" />
           <el-icon v-else class="avatar-uploader-icon">
             <Plus />
           </el-icon>
@@ -34,7 +30,7 @@
 import { getAllSwiper } from "@/api/setting";
 import { Plus } from "@element-plus/icons-vue";
 import { ElMessage, type UploadProps } from "element-plus";
-import {  onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const uploadUrl = ref(
   import.meta.env.VITE_API_BASE_URL + "/setting/uploadSwiper"
@@ -45,15 +41,15 @@ const swiperInfo = ref();
 // 获取轮播图
 const Swiper = async () => {
   const res = await getAllSwiper();
-  swiperInfo.value = res.data.results.map((item:any)=>({
+  swiperInfo.value = res.data.results.map((item: any) => ({
     ...item,
-    set_value: import.meta.env.VITE_API_BASE_URL + item.set_value
-  }))
+    set_value: import.meta.env.VITE_API_BASE_URL + item.set_value,
+  }));
 };
-onMounted(()=>{
+onMounted(() => {
   // 初始化获取
-  Swiper()
-})
+  Swiper();
+});
 
 // 对图片的格式进行判断,轮播图上传之前的函数
 const beforeSwiperUpload: UploadProps["beforeUpload"] = (rawFile) => {
@@ -82,17 +78,17 @@ const handleSwiperSuccess: UploadProps["onSuccess"] = (
     message: response.message,
     type: "success",
   });
-  Swiper()
+  Swiper();
 };
 </script>
 
-<style lang="scss" scoped>
-// 轮播图外壳
+<style lang="css" scoped>
+/* 轮播图外壳 */
 .homeManagement-wrapped {
   display: flex;
   flex-wrap: wrap;
 
-  // 轮播图内容
+  /* 轮播图内容 */
   .homeManagement-content {
     padding: 15px 50px;
     display: flex;

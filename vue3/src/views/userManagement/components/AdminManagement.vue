@@ -344,7 +344,7 @@ const cancelAdd = () => {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="css">
 .global-content {
   padding: 8px;
 

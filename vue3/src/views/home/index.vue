@@ -92,8 +92,8 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
-// 封装表格的样式
+<style lang="css" scoped>
+ /* 封装表格的样式 */
 @mixin table-class {
   height: 240px;
   width: 48%;
@@ -106,18 +106,18 @@ onMounted(() => {
   }
 }
 
-// 主页外壳
+ /* 主页外壳 */
 .home-wrapped {
   display: flex;
   flex-direction: column;
   padding: 8px;
 
-  // 轮播图外壳
+   /* 轮播图外壳 */
   .swiper-wrapped {
     margin-top: 15px;
   }
 
-  // 栅格布局外壳
+   /* 栅格布局外壳 */
   .layout-wrapped {
     padding: 8px;
 
@@ -138,7 +138,7 @@ onMounted(() => {
     }
   }
 
-  // 表格外壳
+   /* 表格外壳 */
   .two-table-wrapped {
     display: flex;
     height: 260px;
@@ -157,7 +157,7 @@ onMounted(() => {
   }
 }
 
-// 轮播图样式
+ /* 轮播图样式 */
 .el-carousel__item h3 {
   color: #475669;
   opacity: 0.75;

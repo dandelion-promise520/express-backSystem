@@ -39,8 +39,7 @@ const item = ref({
 const activeName = ref("first");
 </script>
 
-<style lang="scss" scoped>
-// 主体外壳
+<style lang="css" scoped>
 .common-wrapped {
   padding: 20px 20px;
 
@@ -48,10 +47,7 @@ const activeName = ref("first");
     height: 100%;
   }
 }
-</style>
-
-<!-- 上传头像样式 -->
-<style>
+/* 上传头像样式 */
 .avatar-uploader .el-upload {
   border: 1px dashed var(--el-border-color);
   border-radius: 6px;

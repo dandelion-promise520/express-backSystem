@@ -118,8 +118,8 @@ const loginChartDom = ref(null);
 useloginChartDom(loginChartDom);
 </script>
 
-<style lang="scss" scoped>
-// 页面样式初始化
+<style lang="css" scoped>
+/* 页面样式初始化 */
 .el-header,
 .el-main,
 .el-footer {
@@ -133,7 +133,7 @@ useloginChartDom(loginChartDom);
   height: 100%;
 }
 
-// 头部样式
+/* 头部样式 */
 .header-wrapped {
   height: 27vh;
 
@@ -142,13 +142,13 @@ useloginChartDom(loginChartDom);
     justify-content: space-evenly;
     height: 27vh;
 
-    // 头部左侧
+    /* 头部左侧 */
     .header-left {
       background-color: #fff;
       width: 49%;
       display: flex;
 
-      //左上左边区域
+      /* 左上左边区域 */
       .header-content-left {
         width: 50%;
         height: 100%;
@@ -163,7 +163,7 @@ useloginChartDom(loginChartDom);
         }
       }
 
-      // 左上竖线
+      /* 左上竖线 */
       .line-wrapped {
         height: 100%;
         display: flex;
@@ -175,7 +175,7 @@ useloginChartDom(loginChartDom);
         }
       }
 
-      // 左上右边区域
+      /* 左上右边区域 */
       .header-content-right {
         width: 50%;
         height: 100%;
@@ -192,7 +192,7 @@ useloginChartDom(loginChartDom);
       }
     }
 
-    // 头部右侧
+    /* 头部右侧 */
     .header-right {
       background-color: #fff;
       width: 49%;
@@ -200,7 +200,7 @@ useloginChartDom(loginChartDom);
   }
 }
 
-// 主体样式
+/* 主体样式 */
 .main-wrapped {
   margin-top: 10px;
 
@@ -214,7 +214,7 @@ useloginChartDom(loginChartDom);
       width: 59%;
     }
 
-    // 主体右侧
+    /* 主体右侧 */
     .main-right {
       background-color: #fff;
       width: 39%;
@@ -244,7 +244,7 @@ useloginChartDom(loginChartDom);
   }
 }
 
-// 脚部样式
+/* 脚部样式 */
 .footer-wrapped {
   margin-top: 10px;
 
