@@ -11,9 +11,9 @@
         <div class="main-content">
           <el-card class="box-card">
             <el-tabs v-model="activeName" class="demo-tabs" :stretch="true">
-              <el-tab-pane label="登录" name="first">
-                <el-form :model="loginForm" label-width="auto">
-                  <el-form-item label="账号">
+              <el-tab-pane label="登录" name="first" label-position="right">
+                <el-form :model="loginForm" label-width="auto" >
+                  <el-form-item label="账号" >
                     <el-input
                       v-model="loginForm.account"
                       placeholder="请输入账号"
@@ -29,8 +29,8 @@
                       clearable
                     />
                   </el-form-item>
-                  <el-form-item class="w-full flex items-center">
-                    <el-button type="primary" @submit="Login">登录</el-button>
+                  <el-form-item label-width="auto" class="mt-4">
+                    <el-button type="primary" @click="Login" class="w-full h-12!">登录</el-button>
                   </el-form-item>
                 </el-form>
                 <div class="footer-wrapped">
@@ -79,8 +79,8 @@
                       clearable
                     />
                   </el-form-item>
-                  <el-form-item class="login-btn" @click="Register">
-                    <el-button type="primary">注册</el-button>
+                  <el-form-item>
+                    <el-button type="primary" @click="Register" class="w-full h-12!">注册</el-button>
                   </el-form-item>
                 </el-form>
               </el-tab-pane>
@@ -285,12 +285,6 @@ const Login = async () => {
           }
         }
       }
-
-      /* 登录 */
-      .login-btn {
-        justify-content: center;
-        margin: 4px 0;
-      }
     }
   }
 }
@@ -332,8 +326,8 @@ const Login = async () => {
 }
 
 /* 登录按钮 */
-:deep(.el-button) {
+/* :deep(.el-button) {
   width: 240px;
   height: 45px;
-}
+} */
 </style>
