@@ -1,4 +1,4 @@
-import {  reactive, ref, watch } from "vue";
+import { reactive, ref, watch } from "vue";
 import { ElMessage } from "element-plus";
 import type { UploadProps } from "element-plus";
 import { useUserInfo } from "@/store/userInfo";
@@ -21,9 +21,7 @@ const {
   department,
   identity,
   image_url,
-  GetUserInfo,
 } = useUserInfo();
-
 
 // 账号
 export const accountDetailData = reactive({
@@ -33,8 +31,8 @@ export const accountDetailData = reactive({
   identity,
   department,
   email,
-  image_url: import.meta.env.VITE_API_BASE_URL + image_url,
-  GetUserInfo,
+  image_url: image_url ? import.meta.env.VITE_API_BASE_URL + image_url : null,
+  
 });
 
 // 方法

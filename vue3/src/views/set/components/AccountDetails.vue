@@ -136,13 +136,6 @@ import change_password from "@/views/set/components/change_password.vue";
 
 const uploadUrl = ref(import.meta.env.VITE_API_BASE_URL + "/user/uploadAvatar"); // 上传的图片服务器地址
 
-onMounted(() => {
-  if (localStorage.getItem("id")) {
-    const id = +localStorage.getItem("id")!;
-    accountDetailData.GetUserInfo(id);
-  }
-});
-
 // 插槽
 const changePassword = ref();
 // 打开弹窗
@@ -152,6 +145,26 @@ const openChangeDialog = () => {
 </script>
 
 <style scoped lang="css">
+.avatar-uploader .el-upload {
+  border: 1px dashed var(--el-border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--el-transition-duration-fast);
+}
+
+.avatar-uploader .el-upload:hover {
+  border-color: var(--el-color-primary);
+}
+
+.el-icon.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  text-align: center;
+}
 .account-details-wrapped {
   padding: 15px 50px;
   display: flex;
@@ -165,8 +178,29 @@ const openChangeDialog = () => {
       width: 178px;
       height: 178px;
       display: block;
-      border-radius: 10px;
     }
   }
+}
+</style>
+<style>
+.avatar-uploader .el-upload {
+  border: 1px dashed var(--el-border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--el-transition-duration-fast);
+}
+
+.avatar-uploader .el-upload:hover {
+  border-color: var(--el-color-primary);
+}
+
+.el-icon.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  text-align: center;
 }
 </style>

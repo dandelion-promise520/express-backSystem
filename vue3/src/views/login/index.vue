@@ -22,7 +22,7 @@
                   ref="loginFormRef"
                   label-width="auto"
                   :rules="loginRules"
-                  @submit.native.prevent="Login"
+                  @submit.native.prevent="Login(loginFormRef)"
                 >
                   <el-form-item prop="account">
                     <el-input
@@ -83,7 +83,7 @@
                   ref="registerFormRef"
                   :model="registerForm"
                   :rules="registerRules"
-                  @submit.native.prevent="Register"
+                  @submit.native.prevent="Register(registerFormRef)"
                 >
                   <el-form-item label="账号" prop="account" class="mt-4!">
                     <el-input
@@ -117,7 +117,7 @@
                   <el-form-item>
                     <el-button
                       type="primary"
-                      @click="Register"
+                      native-type="submit"
                       class="w-full h-12! mt-4"
                       :loading="isRegistering"
                       >{{ isRegistering ? "注册中..." : "注册" }}</el-button
@@ -148,11 +148,11 @@ import { reactive, ref } from "vue";
 import forget_password from "./components/forget_password.vue";
 import { register, login } from "@/api/login";
 import { ElMessage, type FormInstance, type FormRules } from "element-plus";
+import {type loginFormInter, type registerFormInter} from '@/utils/interface/login'
 import { passwordReg } from "@/utils/limit/index";
 import { useRouter } from "vue-router";
 const router = useRouter();
 import { useUserInfo } from "@/store/userInfo";
-import { rules } from "../userManagement/hooks/useRules";
 const { GetUserInfo } = useUserInfo();
 
 // 默认进来是登录tab
@@ -164,13 +164,6 @@ const forgetPassword = ref();
 const openForgetDialog = () => {
   forgetPassword.value.openDialog();
 };
-
-// 注册逻辑这块
-interface registerFormInter {
-  account: string;
-  password: string;
-  rePassword: string;
-}
 
 // 判断是否已经在注册中
 const isRegistering = ref(false);
@@ -218,54 +211,38 @@ const registerRules = reactive<FormRules<registerFormInter>>({
 });
 
 // 调用注册接口
-const Register = async () => {
-  if (
-    !registerForm.account ||
-    !registerForm.password ||
-    !registerForm.rePassword
-  ) {
-    ElMessage.error("您的账号或密码不能为空");
-    return;
-  }
-  if (registerForm.password !== registerForm.rePassword) {
-    ElMessage.error("您两次输入的密码不一致");
-    return;
-  }
-  if (registerForm.account.length < 4 || registerForm.account.length > 16) {
-    ElMessage.error("您账号的长度要为4~16位");
-    return;
-  }
-  // 定义密码的正则
-  if (!passwordReg.test(registerForm.password)) {
-    ElMessage.error(
-      "您的密码至少有一个小写字母、一个大写字母、一个数字和一个特殊字符,且长度为8~16位"
-    );
-    return;
-  }
-  try {
-    const res = await register(registerForm);
-    // console.log(res);
-    if (res.data.status == 1) {
-      ElMessage.error(res.data.message);
+const Register = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return;
+  await formEl.validate(async (valid) => {
+    if (!valid) return;
+    if (registerForm.password !== registerForm.rePassword) {
+      ElMessage.error("您两次输入的密码不一致");
       return;
     }
-    ElMessage({
-      message: "注册成功",
-      type: "success",
-    });
-    setTimeout(() => {
-      activeName.value = "first";
-    }, 1500);
-  } catch (error: any) {
-    ElMessage.error(error.message);
-  }
+    isRegistering.value = true;
+    try {
+      const res = await register(registerForm);
+      // console.log(res);
+      if (res.data.status == 1) {
+        ElMessage.error(res.data.message);
+        return;
+      }
+      ElMessage({
+        message: "注册成功",
+        type: "success",
+      });
+      registerFormRef.value?.resetFields();
+      setTimeout(() => {
+        activeName.value = "first";
+      }, 500);
+      isRegistering.value = false;
+    } catch (error: any) {
+      ElMessage.error(error.message);
+      isRegistering.value = false;
+    }
+  });
 };
 
-// 登录逻辑这块
-interface loginFormInter {
-  account: string;
-  password: string;
-}
 // 判断是否已经在登录中
 const isLogging = ref(false);
 // 登录表单
@@ -298,9 +275,9 @@ const loginRules = reactive<FormRules<loginFormInter>>({
 });
 
 // 调用登录接口
-const Login = async () => {
-  if (!loginFormRef.value) return;
-  await loginFormRef.value.validate(async (valid) => {
+const Login = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return;
+  await formEl.validate(async (valid) => {
     if (!valid) return;
     isLogging.value = true;
     try {
@@ -311,7 +288,7 @@ const Login = async () => {
         return;
       }
       // 返回登录成功的结果
-      // console.log(res);
+      console.log(res.data.results);
       const { id } = res.data.results;
       ElMessage({
         message: "登录成功",
