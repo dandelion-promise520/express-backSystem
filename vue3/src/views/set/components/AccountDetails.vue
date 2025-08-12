@@ -22,45 +22,47 @@
     </div>
   </div>
   <!-- 用户账号 -->
-  <div class="set-flex">
-    <span>用户账号</span>
-    <div>
+  <el-form @submit.native.prevent="ChangeAccount" class="set-flex">
+    <el-form-item label="用户账号">
       <el-input
         v-model="accountDetailData.account"
         style="width: 240px"
         placeholder="账号"
       />
-    </div>
-    <el-button type="primary" @click="ChangeAccount" :disabled="!accountFlag"
-      >修改账号</el-button
-    >
-  </div>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" native-type="submit" :disabled="!accountFlag"
+        >修改账号</el-button
+      >
+    </el-form-item>
+  </el-form>
   <!-- 用户密码 -->
-  <div class="set-flex">
-    <span>用户密码</span>
-    <div>
+  <el-form @submit.native.prevent="openChangeDialog" class="set-flex">
+    <el-form-item label="用户密码">
       <el-input style="width: 240px" placeholder="******" disabled />
-    </div>
-    <el-button type="primary" @click="openChangeDialog">修改密码</el-button>
-  </div>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" native-type="submit">修改密码</el-button>
+    </el-form-item>
+  </el-form>
   <!-- 用户姓名 -->
-  <div class="set-flex">
-    <span>用户姓名</span>
-    <div>
+  <el-form @submit.native.prevent="ChangeName" class="set-flex">
+    <el-form-item label="用户姓名">
       <el-input
         v-model="accountDetailData.name"
         style="width: 240px"
         placeholder="姓名"
       />
-    </div>
-    <el-button type="primary" @click="ChangeName" :disabled="!nameFlag"
-      >保存</el-button
-    >
-  </div>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" native-type="submit" :disabled="!nameFlag"
+        >保存</el-button
+      >
+    </el-form-item>
+  </el-form>
   <!-- 用户性别 -->
-  <div class="set-flex">
-    <span>用户性别</span>
-    <div>
+  <el-form @submit.native.prevent="ChangeSex" class="set-flex">
+    <el-form-item label="用户性别">
       <el-select
         v-model="accountDetailData.sex"
         placeholder="性别"
@@ -69,49 +71,50 @@
         <el-option label="男" value="man"></el-option>
         <el-option label="女" value="woman"></el-option>
       </el-select>
-    </div>
-    <el-button type="primary" @click="ChangeSex" :disabled="!sexFlag"
-      >保存</el-button
-    >
-  </div>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" native-type="submit" :disabled="!sexFlag"
+        >保存</el-button
+      >
+    </el-form-item>
+  </el-form>
   <!-- 用户身份 -->
-  <div class="set-flex">
-    <span>用户身份</span>
-    <div>
+  <el-form class="set-flex">
+    <el-form-item label="用户身份">
       <el-input
         v-model="accountDetailData.identity"
         style="width: 240px"
         disabled
         placeholder="身份"
       />
-    </div>
-  </div>
+    </el-form-item>
+  </el-form>
   <!-- 用户部门 -->
-  <div class="set-flex">
-    <span>用户部门</span>
-    <div>
+  <el-form class="set-flex">
+    <el-form-item label="用户部门">
       <el-input
         v-model="accountDetailData.department"
         style="width: 240px"
         placeholder="部门"
         disabled
       />
-    </div>
-  </div>
+    </el-form-item>
+  </el-form>
   <!-- 用户邮箱 -->
-  <div class="set-flex">
-    <span>用户邮箱</span>
-    <div>
+  <el-form class="set-flex">
+    <el-form-item label="用户邮箱">
       <el-input
         v-model="accountDetailData.email"
         style="width: 240px"
         placeholder="邮箱"
       />
-    </div>
-    <el-button type="primary" @click="ChangeEmail" :disabled="!emailFlag"
-      >保存</el-button
-    >
-  </div>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="ChangeEmail" :disabled="!emailFlag"
+        >保存</el-button
+      >
+    </el-form-item>
+  </el-form>
   <!-- 修改密码对话框的插槽 -->
   <change_password ref="changePassword"></change_password>
 </template>

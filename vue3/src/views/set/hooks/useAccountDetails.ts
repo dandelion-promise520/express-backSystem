@@ -165,6 +165,7 @@ export const ChangeAccount = async () => {
     return;
   } else {
     useUserInfo().$patch((item) => (item.account = accountDetailData.account));
+    accountFlag.value = false
     ElMessage({
       message: "修改账号名成功",
       type: "success",

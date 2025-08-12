@@ -254,7 +254,7 @@ const goSet = () => {
 <style lang="css" scoped>
 /* 侧边栏外壳 */
 .el-menu-vertical-demo {
-  height: 100vh;
+  height: 100dvh;
   overflow-x: hidden;
   /* height: 100%; */
   background-color: #2a303a;
