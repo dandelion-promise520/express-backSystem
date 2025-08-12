@@ -15,11 +15,6 @@
 #### 使用说明
 
 ```
-cd express-backSystem
-pnpm i
-pnpm dev
-
-cd vue3
-pnpm i
-pnpm dev
+ctrl + shift + b 运行start all任务，
+跑不起来在.vscode中的tasks.json中修改配置或在.env中修改配置信息
 ```

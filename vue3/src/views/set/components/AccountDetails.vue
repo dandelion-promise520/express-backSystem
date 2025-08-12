@@ -1,8 +1,8 @@
 <template>
-  <div class="account-details-wrapped">
+  <div class="set-flex">
     <!-- 用户头像 -->
-    <span>用户头像:</span>
-    <div class="account-details-content">
+    <span>用户头像</span>
+    <div>
       <el-upload
         class="avatar-uploader"
         :action="uploadUrl"
@@ -22,9 +22,9 @@
     </div>
   </div>
   <!-- 用户账号 -->
-  <div class="account-details-wrapped">
-    <span>用户账号:</span>
-    <div class="account-details-content">
+  <div class="set-flex">
+    <span>用户账号</span>
+    <div>
       <el-input
         v-model="accountDetailData.account"
         style="width: 240px"
@@ -36,17 +36,17 @@
     >
   </div>
   <!-- 用户密码 -->
-  <div class="account-details-wrapped">
-    <span>用户密码:</span>
-    <div class="account-details-content">
+  <div class="set-flex">
+    <span>用户密码</span>
+    <div>
       <el-input style="width: 240px" placeholder="******" disabled />
     </div>
     <el-button type="primary" @click="openChangeDialog">修改密码</el-button>
   </div>
   <!-- 用户姓名 -->
-  <div class="account-details-wrapped">
-    <span>用户姓名:</span>
-    <div class="account-details-content">
+  <div class="set-flex">
+    <span>用户姓名</span>
+    <div>
       <el-input
         v-model="accountDetailData.name"
         style="width: 240px"
@@ -58,9 +58,9 @@
     >
   </div>
   <!-- 用户性别 -->
-  <div class="account-details-wrapped">
-    <span>用户性别:</span>
-    <div class="account-details-content">
+  <div class="set-flex">
+    <span>用户性别</span>
+    <div>
       <el-select
         v-model="accountDetailData.sex"
         placeholder="性别"
@@ -75,9 +75,9 @@
     >
   </div>
   <!-- 用户身份 -->
-  <div class="account-details-wrapped">
-    <span>用户身份:</span>
-    <div class="account-details-content">
+  <div class="set-flex">
+    <span>用户身份</span>
+    <div>
       <el-input
         v-model="accountDetailData.identity"
         style="width: 240px"
@@ -87,9 +87,9 @@
     </div>
   </div>
   <!-- 用户部门 -->
-  <div class="account-details-wrapped">
-    <span>用户部门:</span>
-    <div class="account-details-content">
+  <div class="set-flex">
+    <span>用户部门</span>
+    <div>
       <el-input
         v-model="accountDetailData.department"
         style="width: 240px"
@@ -99,9 +99,9 @@
     </div>
   </div>
   <!-- 用户邮箱 -->
-  <div class="account-details-wrapped">
-    <span>用户邮箱:</span>
-    <div class="account-details-content">
+  <div class="set-flex">
+    <span>用户邮箱</span>
+    <div>
       <el-input
         v-model="accountDetailData.email"
         style="width: 240px"
@@ -117,7 +117,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import { Plus } from "@element-plus/icons-vue";
 import {
   accountFlag,
@@ -145,41 +145,10 @@ const openChangeDialog = () => {
 </script>
 
 <style scoped lang="css">
-.avatar-uploader .el-upload {
-  border: 1px dashed var(--el-border-color);
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: var(--el-transition-duration-fast);
-}
-
-.avatar-uploader .el-upload:hover {
-  border-color: var(--el-color-primary);
-}
-
-.el-icon.avatar-uploader-icon {
-  font-size: 28px;
-  color: #8c939d;
+.avatar-uploader .avatar {
   width: 178px;
   height: 178px;
-  text-align: center;
-}
-.account-details-wrapped {
-  padding: 15px 50px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-
-  .account-details-content {
-    padding: 0 35px;
-
-    .avatar-uploader .avatar {
-      width: 178px;
-      height: 178px;
-      display: block;
-    }
-  }
+  display: block;
 }
 </style>
 <style>

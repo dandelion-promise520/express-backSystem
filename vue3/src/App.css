@@ -2,3 +2,6 @@
 @theme {
   --color-primary-500: #409eff; /* Element Plus 主蓝色 */
 }
+.set-flex {
+  @apply px-12 py-4 flex items-center space-x-6 text-sm;
+}

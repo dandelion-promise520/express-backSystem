@@ -1,8 +1,8 @@
 <template>
   <!-- 公司名称 -->
-  <div class="company-name-wrapped">
+  <div class="set-flex">
     <span>公司名称</span>
-    <div class="company-name-content">
+    <div >
       <el-input
         v-model="companyName"
         style="width: 240px"
@@ -17,29 +17,29 @@
     >
   </div>
   <!-- 公司介绍 -->
-  <div class="company-name-wrapped">
-    <span class="span">公司介绍</span>
+  <div class="set-flex">
+    <span>公司介绍</span>
     <el-button type="success" @click="bus.emit('sendValueId', 8)"
       >编辑公司介绍</el-button
     >
   </div>
   <!-- 公司架构 -->
-  <div class="company-name-wrapped">
-    <span class="span">公司架构</span>
+  <div class="set-flex">
+    <span>公司架构</span>
     <el-button type="success" @click="bus.emit('sendValueId', 9)"
       >编辑公司架构</el-button
     >
   </div>
   <!-- 公司战略 -->
-  <div class="company-name-wrapped">
-    <span class="span">公司战略</span>
+  <div class="set-flex">
+    <span>公司战略</span>
     <el-button type="success" @click="bus.emit('sendValueId', 10)"
       >编辑公司战略</el-button
     >
   </div>
   <!-- 现任高层 -->
-  <div class="company-name-wrapped">
-    <span class="span">现任高层</span>
+  <div class="set-flex">
+    <span>现任高层</span>
     <el-button type="success" @click="bus.emit('sendValueId', 11)"
       >编辑现任高层</el-button
     >
@@ -91,22 +91,3 @@ const ChangeCompanyName = async () => {
   });
 };
 </script>
-
-<style lang="css" scoped>
- /* 公司信息外壳 */
-.company-name-wrapped {
-  padding: 15px 50px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-
-   /* 公司信息内容 */
-  .company-name-content {
-    padding: 0 16px;
-  }
-
-  .span {
-    padding-right: 16px;
-  }
-}
-</style>

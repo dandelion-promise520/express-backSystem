@@ -3,9 +3,9 @@
     <Breadcrumb ref="breadcrumb" :item="item"></Breadcrumb>
   </div>
   <!-- 外壳 -->
-  <div class="common-wrapped">
+  <div class="p-5">
     <!-- 内容 -->
-    <div class="common-content">
+    <div>
       <el-tabs v-model="activeName" class="demo-tabs">
         <el-tab-pane label="账号详情" name="first">
           <AccountDetails></AccountDetails>
@@ -38,34 +38,3 @@ const item = ref({
 // 标签页默认选择
 const activeName = ref("first");
 </script>
-
-<style lang="css" scoped>
-.common-wrapped {
-  padding: 20px 20px;
-
-  .common-content {
-    height: 100%;
-  }
-}
-/* 上传头像样式 */
-.avatar-uploader .el-upload {
-  border: 1px dashed var(--el-border-color);
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: var(--el-transition-duration-fast);
-}
-
-.avatar-uploader .el-upload:hover {
-  border-color: var(--el-color-primary);
-}
-
-.el-icon.avatar-uploader-icon {
-  font-size: 28px;
-  color: #8c939d;
-  width: 178px;
-  height: 178px;
-  text-align: center;
-}
-</style>
