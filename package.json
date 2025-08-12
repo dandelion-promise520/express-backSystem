@@ -5,7 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "dev": "",
+    "dev-local": "cross-env NODE_ENV=development nodemon app.js",
     "dev-server": "cross-env NODE_ENV=production nodemon app.js"
   },
   "keywords": [],

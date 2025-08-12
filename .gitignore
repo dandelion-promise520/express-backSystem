@@ -19,7 +19,7 @@ logs/
 Thumbs.db
 
 # IDE配置
-.vscode/
+# .vscode/
 .idea/
 
 # 打包产物
